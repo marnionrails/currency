@@ -11,14 +11,22 @@
     <div class="jumbotron">
       <h1 class="title">Currency Exchange</h1>
     </div>
-    <label for="currency-type">Choose currency:</label>
-    <select name = "currency" id="currency">
-      <option value="Pounds">Pounds</option>
-      <option value="Francs">Francs</option>
-      <option value="Yen">Yen</option>
-      <option value="Euro">Euro</option>
-      <option value="Pesos">Pesos</option>
-    </select>
+    <form id="money-exchange">
+      <label for="original">Dollars to convert: $</label>
+      <input type="text" id="original" required>
+      <label for="currency-type">Choose currency:</label>
+      <select name = "currency" id="currency">
+        <option value="Pounds">Pounds</option>
+        <option value="Francs">Francs</option>
+        <option value="Yen">Yen</option>
+        <option value="Euro">Euro</option>
+        <option value="Pesos">Pesos</option>
+      </select>
+      <button type="submit" id="convert">Convert!</button>
+    </form>
+    <div class="results">
+
+    </div>
   </div>
 </body>
 </html>
