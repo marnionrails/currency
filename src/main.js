@@ -28,7 +28,7 @@ $('form#money-exchange').submit(function(event) {
       $('.results').append(`<p>${input * body["conversion_rates"]["MXN"]} pesos<p>`);
     }
     else {
-      $('.results').append('<p>Invalid conversion</p>');
+      $('.results').append('<p>The currency in question does not exist.</p>');
     }
   }, function(error) {
     $('.results').append(`There was an error processing your request: ${error}`);
