@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import Currency from './currency-service.js';
 
-$('#convert').on("click", function() {
+$('form#money-exchange').submit(function(event) {
+  event.preventDefault();
   $('.results').empty();
   let promise = Currency.getCurrency();
   promise.then(function(response) {
