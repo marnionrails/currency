@@ -9,6 +9,9 @@ $('form#money-exchange').submit(function(event) {
   $('.results').empty();
   let promise = Currency.getCurrency();
   promise.then(function(response) {
+    if (response instanceof Error) {
+      console.log("ERROR");
+    }
     const body = JSON.parse(response);
     let input = $("#original").val();
     let choice = $("#currency").val();
@@ -27,8 +30,11 @@ $('form#money-exchange').submit(function(event) {
     else if (choice === "Pesos") {
       $('.results').append(`<p>${input * body["conversion_rates"]["MXN"]} pesos<p>`);
     }
+    else if (isNaN(body["conversion_rates"][choice])) {
+      $('.results').append(`<p>Invalid Currency<p>`);
+    }
     else {
-      $('.results').append('<p>The currency in question does not exist.</p>');
+      $('.results').append('<p>Something went wrong</p>');
     }
   }, function(error) {
     $('.results').append(`There was an error processing your request: ${error}`);
